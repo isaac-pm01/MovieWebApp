@@ -1,0 +1,21 @@
+﻿@model Movie
+@{
+    ViewBag.Title = $"{ViewBag.Operation} Movie";
+}
+
+<h2>@ViewBag.Operation Movie</h2>
+
+<form asp-action="AddEdit" method="post">
+    <input type="hidden" asp-for="ID" />
+    <div class="form-floating mb-3">
+        <input asp-for="Title" class="form-control" id="floatingName" placeholder="name@example.com" >
+        <label asp-for="Title" for="floatingName">Movie Name</label>
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input asp-for="Price" class="form-control" id="floatingPrice" placeholder="name@example.com"  >
+        <label asp-for="Price" for="floatingPrice">Movie Price</label>
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>

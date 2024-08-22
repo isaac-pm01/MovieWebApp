@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Movie>
+@{
+    ViewBag.Title = "List of my Movies";
+}
+
+<h1>My List of Movies</h1>
+<br />
+<a asp-action="AddEdit" class="btn btn-info">Add New Movie</a>
+<br />
+<br />
+<div class="flex-container">
+    @foreach(var movie in Model)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">@movie.Title</h4>
+                <p class="card-text">@movie.Price</p>
+                <a asp-action="AddEdit" asp-route-id="@movie.ID" asp-route-slug="@movie.Slug" class="btn btn-primary">Edit</a>
+                <a asp-action="Delete" asp-route-id="@movie.ID" asp-route-slug="@movie.Slug" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    }
+</div>

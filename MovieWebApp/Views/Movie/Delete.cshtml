@@ -1,0 +1,13 @@
+﻿@model MovieWebApp.Models.Movie
+@{
+    ViewBag.Title = $"Delete {Model.Title}";
+}
+
+
+<h1>Are you sure you want to delete @Model.Title ?</h1>
+<br />
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="ID" />
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Cancel</a>
+</form>
